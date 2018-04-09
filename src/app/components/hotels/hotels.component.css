@@ -14,12 +14,55 @@
 
 .font{
     font-family: 'Questrial', sans-serif;
-    font-size: 150%;
+    font-size: 110%;
+    margin: 0;
 }
 
-.minbox{
+.fontHotelName{
+    font-family: 'Questrial', sans-serif;
+    font-size: 200%;
+    font-weight: bold;
 }
 
-.minbox2{
 
+.pinkbox{
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+    background: #EE265A;
+    text-align: center;
+    width: 100%;
+    font-family: 'Questrial', sans-serif;
+    font-size: 200%;
+    color: white;
+}
+
+.comentarios{
+    color: #818284;
+    font-size: 120%;
+    text-align: left;
+    padding-top: 2%;
+}
+
+.vl {
+    border-left: 2px solid #435760;
+    height: 100%;
+}
+
+.boxPrice{
+    padding-top: 0px;
+    padding-bottom: 0px; 
+    margin: 0px;
+    text-align: center;
+}
+
+.fontPrice{
+    color: #3E8A40;
+    font-size: 200%;
+}
+
+.btnGreen{
+    background: #3E8A40;
+    
 }

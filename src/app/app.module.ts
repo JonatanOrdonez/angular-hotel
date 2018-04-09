@@ -11,7 +11,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { NavbarComponent } from './components/navbar/navbar.component'
 import { HotelService } from './services/hotel.service';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { HotelsComponent } from './components/hotels/hotels.component';
 
 @NgModule({

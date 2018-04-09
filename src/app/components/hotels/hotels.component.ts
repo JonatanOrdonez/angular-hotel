@@ -12,7 +12,7 @@ export class HotelsComponent implements OnInit {
 
   hotels: Hotel[];
 
-  constructor(public hotelService: HotelService) {
+  constructor(private hotelService: HotelService) {
 
   }
 

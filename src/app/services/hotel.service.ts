@@ -8,8 +8,7 @@ export class HotelService {
   hotelsCollection: AngularFirestoreCollection<Hotel>;
   hotels: Observable<Hotel[]>;
   hotelDoc: AngularFirestoreDocument<Hotel>;
-
-  filteredHotels: Hotel[];
+  filteredHotels: Observable<Hotel[]>;
 
   constructor(public afs: AngularFirestore) {
     this.hotelsCollection = this.afs.collection('hotels');
