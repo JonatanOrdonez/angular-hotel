@@ -1,0 +1,30 @@
+<div *ngIf="hotels?.length; else notask">
+  <div class="container">
+    <p class="font">Se encontraron
+      <strong>{{ hotels.length }} </strong> de 9999 hoteles</p>
+    <div class="box" *ngFor="let hotel of hotels">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3">
+            <img class="minbox" src="../../../assets/images/minbox.png" />
+          </div>
+          <div class="col-lg-5">
+            <p class="font">
+              <strong class="font">
+                {{ hotel.nombre }}:
+              </strong>
+            </p>
+          </div>
+          <div class="col-lg-4">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <ng-template #notask>
+    <div class="container">
+      <h3 class="font">No hay hoteles</h3>
+    </div>
+  </ng-template>
