@@ -6,11 +6,17 @@ import { AppComponent } from './app.component';
 
 import { environment } from '../environments/environment.prod';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore'
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+
+import { NavbarComponent } from './components/navbar/navbar.component'
+import { HotelService } from './services/hotel.service';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    SearchbarComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +24,9 @@ import { AngularFirestoreModule } from 'angularfire2/firestore'
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase, 'angular-hotel'),
   ],
-  providers: [],
+  providers: [
+    HotelService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
