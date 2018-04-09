@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Hotel } from '../models/hotel';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
+import { HotelsComponent } from '../components/hotels/hotels.component';
 
 @Injectable()
 export class HotelService {
   hotelsCollection: AngularFirestoreCollection<Hotel>;
   hotels: Observable<Hotel[]>;
   hotelDoc: AngularFirestoreDocument<Hotel>;
-  filteredHotels: Observable<Hotel[]>;
+  filteredHotels: Hotel[];
 
   constructor(public afs: AngularFirestore) {
     this.hotelsCollection = this.afs.collection('hotels');
@@ -21,8 +22,8 @@ export class HotelService {
     });
   }
 
-  getHotels() {
-    return this.hotels; 
+  getFilteredHotels(): Observable<Hotel[]> {
+    return this.hotels;
   }
 
   addHotel(hotel: Hotel) {
@@ -37,5 +38,18 @@ export class HotelService {
   updateHotel(hotel: Hotel) {
     this.hotelDoc = this.afs.doc(`tasks/${hotel.id}`);
     this.hotelDoc.update(hotel);
+  }
+
+  findHotels(nombre: string) {
+    let hotelesFiltrados: Hotel[];
+    let hotelesFinales: Hotel[];
+    this.hotels.subscribe(x => {hotelesFiltrados = x});
+    hotelesFiltrados.forEach(hotel => {
+      if(hotel.nombre == nombre){
+        hotelesFinales.push(hotel);
+      }
+
+    });
+    this.filteredHotels = hotelesFinales;
   }
 }

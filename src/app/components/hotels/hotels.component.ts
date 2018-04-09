@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Hotel } from '../../models/hotel';
 import { HotelService } from '../../services/hotel.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-hotels',
@@ -17,9 +18,8 @@ export class HotelsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.hotelService.getHotels().subscribe(hotels => {
-      this.hotels = hotels;
+    this.hotelService.getFilteredHotels().subscribe( x =>{
+      this.hotels = x;
     });
   }
-
 }
