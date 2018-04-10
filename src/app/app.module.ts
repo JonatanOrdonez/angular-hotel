@@ -40,7 +40,10 @@ import { AddhotelComponent } from './components/addhotel/addhotel.component';
         path: 'home',
         component: SearchbarComponent
       },
-
+      {
+        path: 'addhotel',
+        component: AddhotelComponent
+      },
       {
         path: '**',
         pathMatch: 'full',

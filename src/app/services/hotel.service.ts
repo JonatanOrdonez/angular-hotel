@@ -8,9 +8,12 @@ export class HotelService {
   hotelsCollection: AngularFirestoreCollection<Hotel>;
   hotels: Observable<Hotel[]>;
   hotelDoc: AngularFirestoreDocument<Hotel>;
-  filteredHotels: Hotel[];
 
   constructor(public afs: AngularFirestore) {
+    this.loadFireBase();
+  }
+
+  loadFireBase(){
     this.hotelsCollection = this.afs.collection('hotels');
     this.hotels = this.hotelsCollection.snapshotChanges().map(changes => {
       return changes.map(a => {
@@ -21,7 +24,8 @@ export class HotelService {
     });
   }
 
-  getFilteredHotels(): Observable<Hotel[]> {
+  getHotels(): Observable<Hotel[]> {
+    this.loadFireBase();
     return this.hotels;
   }
 
@@ -37,17 +41,5 @@ export class HotelService {
   updateHotel(hotel: Hotel) {
     this.hotelDoc = this.afs.doc(`tasks/${hotel.id}`);
     this.hotelDoc.update(hotel);
-  }
-
-  findHotels(nombre: string) {
-    let hotelesFiltrados: Hotel[];
-    let hotelesFinales: Hotel[];
-    this.hotels.subscribe(x => {hotelesFiltrados = x});
-    hotelesFiltrados.forEach(hotel => {
-      if(hotel.nombre == nombre){
-        hotelesFinales.push(hotel);
-      }
-    });
-    this.filteredHotels = hotelesFinales;
   }
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AddHotelComponent } from '../add-hotel/add-hotel.component';
 import { AppComponent } from '../../app.component';
 
 @Component({

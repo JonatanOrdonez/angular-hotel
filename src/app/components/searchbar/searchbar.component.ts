@@ -19,19 +19,25 @@ export class SearchbarComponent implements OnInit {
   constructor(private hotelService: HotelService) { }
 
   ngOnInit() {
-    this.hotelService.getFilteredHotels().subscribe(x => {
+    this.loadHotels();
+  }
+
+  loadHotels() {
+    this.hotelService.getHotels().subscribe(x => {
       this.hoteles = x;
     });
   }
 
   call() {
+    this.loadHotels();
     this.hotelesFiltrados = [];
-    if (this.nombreHotelBuscado.toString().length == 0) {
-      this.mensaje = 'Ingrese un nombre de hotel válido.';
+    if (this.nombreHotelBuscado.length == 0) {
+      this.mensaje = 'Ingrese u n nombre de hotel válido.';
     } else {
+      console.log(this.hoteles.length);
       this.hoteles.forEach(hotel => {
         let miNombre = hotel.nombre.toLowerCase();
-        if (miNombre.includes(this.nombreHotelBuscado.toLocaleLowerCase())) {
+        if (miNombre.includes(this.nombreHotelBuscado.toLowerCase())) {
           this.hotelesFiltrados.push(hotel);
         }
       });
