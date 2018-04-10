@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Hotel } from '../models/hotel';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
-import { HotelsComponent } from '../components/hotels/hotels.component';
 
 @Injectable()
 export class HotelService {
@@ -48,7 +47,6 @@ export class HotelService {
       if(hotel.nombre == nombre){
         hotelesFinales.push(hotel);
       }
-
     });
     this.filteredHotels = hotelesFinales;
   }

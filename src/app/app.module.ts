@@ -1,6 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
+import { Title } from '@angular/platform-browser';
+import { RouterModule } from "@angular/router";
+import { BrowserModule } from "@angular/platform-browser";
 
 import { AppComponent } from './app.component';
 
@@ -12,7 +15,7 @@ import { NavbarComponent } from './components/navbar/navbar.component'
 import { HotelService } from './services/hotel.service';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HotelsComponent } from './components/hotels/hotels.component';
+import { AddhotelComponent } from './components/addhotel/addhotel.component';
 
 @NgModule({
   declarations: [
@@ -20,18 +23,38 @@ import { HotelsComponent } from './components/hotels/hotels.component';
     NavbarComponent,
     SearchbarComponent,
     FooterComponent,
-    HotelsComponent
+    AddhotelComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AngularFireModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase, 'angular-hotel'),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBvoofFLok4BGeX_CusWBtn7DsR5oS_mhU'
+    }),
+    BrowserModule,
+    RouterModule.forRoot([
+      {
+        path: 'home',
+        component: SearchbarComponent
+      },
+
+      {
+        path: '**',
+        pathMatch: 'full',
+        redirectTo: 'home'
+      }
+    ])
   ],
-  providers: [ 
+  providers: [
     HotelService
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
- }
+  constructor(private titulo: Title) {
+    titulo.setTitle('Hotel');
+  }
+}

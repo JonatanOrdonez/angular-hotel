@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+
 .footer{
-    background: #22373C;
+    background: #2F3034;
     width: 100%;
-    padding: 2%;
+    padding: 5%;
+    text-align: center;
 }
 
 .font{
     color: white;
     font-size: 120%;
+    font-family: 'Questrial', sans-serif;
 }
