@@ -58,6 +58,7 @@ export class HotelService {
   }
 
   filterHotels(hoteles: Hotel[], valor: string) {
+    this.loadFireBase();
     let mensaje: string = '';
     let hotelesFiltrados: Hotel[] = [];
     if (valor.length == 0) {
