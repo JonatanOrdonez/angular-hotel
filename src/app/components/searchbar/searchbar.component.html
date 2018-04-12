@@ -1,5 +1,5 @@
 <img class="banner" src="./assets/images/banner.jpg">
-<form  (ngSubmit)="call()">
+<form  (ngSubmit)="filter()">
   <div class="background">
     <div class="container">
       <p class="fontM">Utilice la barra de busqueda para encontrar el hotel de preferencia.</p>
@@ -16,45 +16,4 @@
     </div>
   </div>
 </form>
-<div *ngIf="hotelesFiltrados?.length" class="lista">
-  <div class="container">
-    <p class="font">Se encontró <strong>{{ hotelesFiltrados.length }} </strong> de {{ sizeHotels }} hoteles</p>
-    <div class="box" *ngFor="let hotel of hotelesFiltrados">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3">
-            <agm-map [latitude]=hotel.latitud [longitude]=hotel.longitud>
-              <agm-marker [latitude]=hotel.latitud [longitude]=hotel.longitud>
-              </agm-marker>
-            </agm-map>
-          </div>
-          <div class="col-lg-5">
-            <p class="fontHotelName"> {{ hotel.nombre }}</p>
-            <div class="row">
-              <div class="col-lg-3">
-                <p class="pinkbox">{{ hotel.calificacion }}</p>
-              </div>
-              <div class="col-lg-9">
-                <p class="comentarios">917 opiniones</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="row">
-              <div class="col-lg-1">
-                <div class="vl"></div>
-              </div>
-              <div class="col-lg-10">
-                <div class="boxPrice">
-                  <p class="font">Precio por habitación</p>
-                  <p class="fontPrice">$ {{ hotel.precio | currency: $: 3}}</p>
-                  <button type="button" class="btn btn-success btn-lg">Ver más ></button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<app-listhotels></app-listhotels>

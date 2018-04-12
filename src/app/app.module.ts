@@ -16,6 +16,7 @@ import { HotelService } from './services/hotel.service';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AddhotelComponent } from './components/addhotel/addhotel.component';
+import { ListhotelsComponent } from './components/listhotels/listhotels.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AddhotelComponent } from './components/addhotel/addhotel.component';
     NavbarComponent,
     SearchbarComponent,
     FooterComponent,
-    AddhotelComponent
+    AddhotelComponent,
+    ListhotelsComponent
   ],
   imports: [
     FormsModule,
