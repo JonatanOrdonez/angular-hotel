@@ -9,11 +9,11 @@ import { HotelService } from '../../services/hotel.service';
 })
 export class AddhotelComponent implements OnInit {
 
-  private nombre: string = '';
-  private precio: number;
-  private latitud: number;
-  private longitud: number;
-  private locationChosen = false;
+  nombre: string = '';
+  precio: number;
+  latitud: number;
+  longitud: number;
+  locationChosen = false;
 
   constructor(private hotelService: HotelService) { }
 
