@@ -2,6 +2,7 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Hotel } from '../models/hotel';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
+import { isNumber } from 'util';
 
 @Injectable()
 export class HotelService {
@@ -77,15 +78,15 @@ export class HotelService {
     return { hoteles: hotelesFiltrados, mensaje: mensaje, sizeH: hoteles.length };
   }
 
-  addNewHotel(nombre: string, precio: number, latitud: number, longitud: number){
-    let hotel: Hotel = {
-    id: '',
-    nombre: nombre,
-    precio: precio,
-    calificacion: 0,
-    latitud: latitud,
-    longitud: longitud
-    };
-    this.addHotel(hotel);
+  addNewHotel(nombre: string, precio: number, latitud: number, longitud: number) {
+      let hotel: Hotel = {
+        id: '',
+        nombre: nombre,
+        precio: precio,
+        calificacion: 0,
+        latitud: latitud,
+        longitud: longitud
+      };
+      this.addHotel(hotel);
   }
 }

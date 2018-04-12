@@ -6,20 +6,36 @@
 </div>
 <div class="container">
   <div class="back">
-    <form (ngSubmit)="addHotel()">
+    <form name="myForm" (ngSubmit)="addHotel()">
       <div class="box">
         <div class="container">
           <p class="fontHotelName">Agregar hotel</p>
           <div class="row">
             <div class="col-lg-8">
-              <input name='nombreHotel' [(ngModel)]="nombre" class="form-control" id="nombreHotel" placeholder="Nombre del hotel">
+              <input autofocus type="text" name='nombre' class="form-control" required minlength="1" [(ngModel)]="nombre" placeholder="Nombre del hotel"
+                #nombreHotel='ngModel'>
             </div>
             <div class="col-lg-2">
-              <input name='precioHotel' [(ngModel)]="precio" class="form-control" id="nombreHotel" placeholder="Precio">
+              <input type="number" name='precio' class="form-control" required minlength="1" [(ngModel)]="precio" placeholder="Precio hotel"
+                #precioHotel='ngModel'>
             </div>
             <div class="col-lg-2">
-              <input type="submit" name="Registrar" class="btn btn-primary btnGreen">
+              <input type="submit" name="Registrar" id='Registrar' class="btn btn-primary btnGreen" (click)='activarBoton()'>
             </div>
+          </div>
+          <br/>
+          <div *ngIf="precioHotel.invalid && botonActivo" class="alert alert-danger">
+            <div *ngIf="precioHotel.errors.required">
+              El precio del hotel es un campo obligatorio.
+            </div>
+          </div>
+          <div *ngIf="nombreHotel.invalid && botonActivo" class="alert alert-danger">
+            <div *ngIf="nombreHotel.errors.required">
+              El nombre del hotel es un campo obligatorio.
+            </div>
+          </div>
+          <div *ngIf="!locationChosen && botonActivo" class="alert alert-danger">
+              No se ha seleccionado ninguna ubicación en el mapa
           </div>
         </div>
       </div>
@@ -29,7 +45,7 @@
         <strong>Indique en el mapa la ubicación del Hotel</strong>
       </p>
       <div class="embed-responsive embed-responsive-16by1 map">
-        <agm-map (mapClick)='onChoseLocation($event)' [zoom]="1">
+        <agm-map (mapClick)='onChoseLocation($event)' [zoom]="2">
           <agm-marker [latitude]='latitud' [longitude]='longitud' *ngIf='locationChosen'></agm-marker>
         </agm-map>
       </div>
