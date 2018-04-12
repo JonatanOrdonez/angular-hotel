@@ -76,4 +76,16 @@ export class HotelService {
     }
     return { hoteles: hotelesFiltrados, mensaje: mensaje, sizeH: hoteles.length };
   }
+
+  addNewHotel(nombre: string, precio: number, latitud: number, longitud: number){
+    let hotel: Hotel = {
+    id: '',
+    nombre: nombre,
+    precio: precio,
+    calificacion: 0,
+    latitud: latitud,
+    longitud: longitud
+    };
+    this.addHotel(hotel);
+  }
 }

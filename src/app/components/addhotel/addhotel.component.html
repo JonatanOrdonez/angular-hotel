@@ -6,26 +6,31 @@
 </div>
 <div class="container">
   <div class="back">
-    <div class="box">
-      <div class="container">
-        <p class="fontHotelName">Agregar hotel</p>
-        <div class="row">
-          <div class="col-lg-8">
-            <input name='nombreHotel' class="form-control" id="nombreHotel" placeholder="Nombre del hotel">
-          </div>
-          <div class="col-lg-2">
-            <input name='precioHotel' class="form-control" id="nombreHotel" placeholder="Precio">
-          </div>
-          <div class="col-lg-2">
-            <input type="submit" name="Registrar" class="btn btn-primary btnGreen">
+    <form (ngSubmit)="addHotel()">
+      <div class="box">
+        <div class="container">
+          <p class="fontHotelName">Agregar hotel</p>
+          <div class="row">
+            <div class="col-lg-8">
+              <input name='nombreHotel' [(ngModel)]="nombre" class="form-control" id="nombreHotel" placeholder="Nombre del hotel">
+            </div>
+            <div class="col-lg-2">
+              <input name='precioHotel' [(ngModel)]="precio" class="form-control" id="nombreHotel" placeholder="Precio">
+            </div>
+            <div class="col-lg-2">
+              <input type="submit" name="Registrar" class="btn btn-primary btnGreen">
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </form>
     <div class="container">
-      <p class="fontM"><strong>Indique en el mapa la ubicación del Hotel</strong></p>
+      <p class="fontM">
+        <strong>Indique en el mapa la ubicación del Hotel</strong>
+      </p>
       <div class="embed-responsive embed-responsive-16by1 map">
-        <agm-map [latitude]='6.244203' [longitude]='-75.58121189'>
+        <agm-map (mapClick)='onChoseLocation($event)' [zoom]="1">
+          <agm-marker [latitude]='latitud' [longitude]='longitud' *ngIf='locationChosen'></agm-marker>
         </agm-map>
       </div>
     </div>
