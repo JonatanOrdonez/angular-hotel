@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
-import { Title } from '@angular/platform-browser';
 import { RouterModule } from "@angular/router";
 import { BrowserModule } from "@angular/platform-browser";
 
@@ -59,7 +58,5 @@ import { ListhotelsComponent } from './components/listhotels/listhotels.componen
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(private titulo: Title) {
-    titulo.setTitle('Hotel');
-  }
+  constructor() { }
 }
