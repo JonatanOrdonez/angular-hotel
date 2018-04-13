@@ -8,7 +8,7 @@
           <div class="row">
             <div class="col-lg-3">
               <div class="embed-responsive embed-responsive-8by1">
-                <agm-map [latitude]=hotel.latitud [longitude]=hotel.longitud>
+                <agm-map [latitude]=hotel.latitud [longitude]=hotel.longitud [zoom]="4">
                   <agm-marker [latitude]=hotel.latitud [longitude]=hotel.longitud>
                   </agm-marker>
                 </agm-map>
@@ -33,8 +33,8 @@
                 <div class="col-lg-10">
                   <div class="boxPrice">
                     <p class="font">Precio por habitación</p>
-                    <p class="fontPrice">$ {{ hotel.precio | currency: $: 3}}</p>
-                    <button type="button" class="btn btn-success btn-lg">Ver más ></button>
+                    <p class="fontPrice">{{ hotel.precio | currency: $}}</p>
+                    <button type="button" class="btn btn-success btn-lg" (click)="open(content, hotel)">Ver más ></button>
                   </div>
                 </div>
               </div>
@@ -45,3 +45,35 @@
     </div>
   </div>
 </div>
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="fontHotelName">{{ selectedHotel.nombre }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-lg-4">
+        <p class="font">Precio por habitación</p>
+        <p class="fontPrice">{{ selectedHotel.precio | currency: $}}</p>
+        <p class="font">Calificación</p>
+        <p class="pinkbox2">{{ selectedHotel.calificacion }}</p>
+      </div>
+      <div class="col-lg-1">
+          <div class="vl"></div>
+        </div>
+      <div class="col-lg-7">
+        <div class="embed-responsive embed-responsive-8by1 salto">
+          <agm-map [latitude]=selectedHotel.latitud [longitude]=selectedHotel.longitud [zoom]="4">
+            <agm-marker [latitude]=selectedHotel.latitud [longitude]=selectedHotel.longitud>
+            </agm-marker>
+          </agm-map>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Cerrar</button>
+  </div>
+</ng-template>

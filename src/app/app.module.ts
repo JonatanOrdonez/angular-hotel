@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { RouterModule } from "@angular/router";
@@ -27,6 +28,7 @@ import { ListhotelsComponent } from './components/listhotels/listhotels.componen
     ListhotelsComponent
   ],
   imports: [
+    NgbModule.forRoot(),
     FormsModule,
     BrowserModule,
     AngularFireModule,
