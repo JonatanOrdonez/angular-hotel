@@ -3,6 +3,7 @@ import { Hotel } from '../models/hotel';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import { isNumber } from 'util';
+import { Comentario } from '../models/comentario';
 
 @Injectable()
 export class HotelService {
@@ -14,7 +15,7 @@ export class HotelService {
   @Output() sizeHotels: EventEmitter<number> = new EventEmitter();
 
   constructor(public afs: AngularFirestore) {
-    this.loadFireBase();
+    this.loadFireBaseHotels();
   }
 
   setHotelesFiltrados(hotels: Hotel[]) {
@@ -25,7 +26,7 @@ export class HotelService {
     this.sizeHotels.emit(valor);
   }
 
-  loadFireBase() {
+  loadFireBaseHotels() {
     this.hotelsCollection = this.afs.collection('hotels');
     this.hotels = this.hotelsCollection.snapshotChanges().map(changes => {
       return changes.map(a => {
@@ -49,17 +50,17 @@ export class HotelService {
   }
 
   deleteHotel(hotel: Hotel) {
-    this.hotelDoc = this.afs.doc(`tasks/${hotel.id}`);
+    this.hotelDoc = this.afs.doc('hotels/' + hotel.id);
     this.hotelDoc.delete();
   }
 
   updateHotel(hotel: Hotel) {
-    this.hotelDoc = this.afs.doc(`tasks/${hotel.id}`);
+    this.hotelDoc = this.afs.doc('hotels/' + hotel.id);
     this.hotelDoc.update(hotel);
   }
 
   filterHotels(hoteles: Hotel[], valor: string) {
-    this.loadFireBase();
+    this.loadFireBaseHotels();
     let mensaje: string = '';
     let hotelesFiltrados: Hotel[] = [];
     if (valor.length == 0) {
@@ -79,14 +80,15 @@ export class HotelService {
   }
 
   addNewHotel(nombre: string, precio: number, latitud: number, longitud: number) {
-      let hotel: Hotel = {
-        id: '',
-        nombre: nombre,
-        precio: precio,
-        calificacion: 0,
-        latitud: latitud,
-        longitud: longitud
-      };
-      this.addHotel(hotel);
+    let hotel: Hotel = {
+      id: '',
+      nombre: nombre,
+      precio: precio,
+      calificacion: 0,
+      latitud: latitud,
+      longitud: longitud,
+      numerocomentarios: 0
+    };
+    this.addHotel(hotel);
   }
 }

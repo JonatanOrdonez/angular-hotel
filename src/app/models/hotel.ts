@@ -1,8 +1,9 @@
 export class Hotel {
-    id: String;
-    nombre: String;
+    id: string;
+    nombre: string;
     precio: number;
     calificacion: number;
     latitud: number;
     longitud: number;
+    numerocomentarios: number;
 }

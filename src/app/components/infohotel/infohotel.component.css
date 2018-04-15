@@ -1,0 +1,152 @@
+
+.comentarios{
+    color: #818284;
+    font-size: 120%;
+    text-align: left;
+    padding-top: 2%;
+}
+
+.vl {
+    border-left: 2px solid #435760;
+    height: 100%;
+}
+
+.boxPrice{
+    padding-top: 0px;
+    padding-bottom: 0px; 
+    margin: 0px;
+    text-align: center;
+}
+
+.fontPrice{
+    color: #3E8A40;
+    font-size: 200%;
+}
+
+.btnGreen{
+    background: #3E8A40;
+}
+
+
+agm-map {
+    width: 400px;
+    height: 150px;
+}
+
+.back {
+    -webkit-box-shadow: 0px 0px 13px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 13px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    padding: 2%;
+}
+
+.salto {
+    padding-top: 3%;
+}
+
+fieldset, label { margin: 0; padding: 0; }
+body{ margin: 20px; }
+h1 { font-size: 1.5em; margin: 10px; }
+
+/****** Style Star Rating Widget *****/
+
+.rating {
+    border: none;
+    float: left;
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label { 
+  color: #ddd; 
+ float: right; 
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+
+.fontPrice{
+    color: #3E8A40;
+    font-size: 200%;
+}
+
+.font{
+    font-family: 'Questrial', sans-serif;
+    font-size: 110%;
+    margin: 0;
+}
+
+.pinkbox2{
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+    background: #EE265A;
+    text-align: center;
+    width: 40%;
+    font-family: 'Questrial', sans-serif;
+    font-size: 150%;
+    color: white;
+}
+
+.salto {
+    padding-top: 3%;
+}
+
+.boxComentario{
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+    -webkit-box-shadow: 0px 0px 13px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 13px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    margin: 2%;
+    padding: 2%;
+    max-height: 10%;
+}
+
+.box{
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+    -webkit-box-shadow: 0px 0px 13px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 13px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    margin: 2%;
+    padding: 2%;
+}
+
+.pinkbox{
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+    background: #EE265A;
+    text-align: center;
+    width: 100%;
+    font-family: 'Questrial', sans-serif;
+    font-size: 200%;
+    color: white;
+}

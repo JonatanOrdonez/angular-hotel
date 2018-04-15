@@ -17,6 +17,7 @@ import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AddhotelComponent } from './components/addhotel/addhotel.component';
 import { ListhotelsComponent } from './components/listhotels/listhotels.component';
+import { InfohotelComponent } from './components/infohotel/infohotel.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ListhotelsComponent } from './components/listhotels/listhotels.componen
     SearchbarComponent,
     FooterComponent,
     AddhotelComponent,
-    ListhotelsComponent
+    ListhotelsComponent,
+    InfohotelComponent
   ],
   imports: [
     NgbModule.forRoot(),

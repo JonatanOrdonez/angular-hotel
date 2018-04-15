@@ -1,0 +1,84 @@
+<div class="modal-body">
+  <div class="row">
+    <div class="col-lg-4">
+      <p class="font">Precio por habitación</p>
+      <p class="fontPrice">{{ selectedHotel.precio | currency: $}}</p>
+      <p class="font">Calificación</p>
+      <p class="pinkbox2">{{ selectedHotel.calificacion }}</p>
+    </div>
+    <div class="col-lg-1">
+      <div class="vl"></div>
+    </div>
+    <div class="col-lg-7">
+      <div class="embed-responsive embed-responsive-8by1 salto">
+        <agm-map [latitude]=selectedHotel.latitud [longitude]=selectedHotel.longitud [zoom]="4">
+          <agm-marker [latitude]=selectedHotel.latitud [longitude]=selectedHotel.longitud>
+          </agm-marker>
+        </agm-map>
+      </div>
+    </div>
+  </div>
+  <br>
+  <hr>
+  <div class="container">
+    <form name="myForm" class="boxComentario" (ngSubmit)="addHotel()">
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="row">
+            <div class="col-lg-6">
+              <input autofocus type="text" name='nombreUsuario' class="form-control" required minlength="1" [(ngModel)]="nombre" placeholder="Nombre"
+                #nombreUsuario='ngModel'>
+            </div>
+            <div class="col-lg-6">
+              <input autofocus type="email" name='correo' class="form-control" required minlength="1" [(ngModel)]="nombre" placeholder="Correo"
+                #correo='ngModel'>
+            </div>
+          </div>
+          <br/>
+          <p>¿Conoces este hotel? Calificalo.</p>
+          <fieldset class="rating">
+            <input (click)='starHandler(5)' type="radio" id="star5" name="rating" value="5" />
+            <label class="full" for="star5" title="Awesome - 5 stars"></label>
+            <input (click)='starHandler(4)' type="radio" id="star4" name="rating" value="4" />
+            <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+            <input (click)='starHandler(3)' type="radio" id="star3" name="rating" value="3" />
+            <label class="full" for="star3" title="Meh - 3 stars"></label>
+            <input (click)='starHandler(2)' type="radio" id="star2" name="rating" value="2" />
+            <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+            <input (click)='starHandler(1)' type="radio" id="star1" name="rating" value="1" />
+            <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+          </fieldset>
+        </div>
+        <div class="col-lg-5">
+          <textarea class="form-control" rows="5" id="comment"></textarea>
+        </div>
+        <div class="col-lg-2">
+          <br/>
+          <br/>
+          <button type="button" class="btn btn-primary btn-xl butn">Agregar</button>
+        </div>
+      </div>
+    </form>
+    <hr>
+    <div class="container">
+      <p>{{ selectedHotel.comentarios.length }} opiniones</p>
+      <div *ngIf="selectedHotel.comentarios?.length">
+        <div class="box" *ngFor="let comentario of selectedHotel.comentarios">
+          <div class="row">
+            <div class="col-lg-10">
+              <strong>
+                <p>{{ comentario.nombre }}
+                  <a>({{ comentario.correo }})</a>
+                </p>
+              </strong>
+              <p>{{ comentario.descripcion }}</p>
+            </div>
+            <div class="col-lg-2">
+              <p class="pinkbox">-{{ comentario.calificacion }}/5</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
