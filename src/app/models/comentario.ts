@@ -5,5 +5,4 @@ export class Comentario {
     correo: string;
     descripcion: string;
     calificacion: number;
-    comentarios: Comentario[];
 }

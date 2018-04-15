@@ -21,17 +21,17 @@
   <br>
   <hr>
   <div class="container">
-    <form name="myForm2" class="boxComentario" (ngSubmit)="addComentario()">
+    <form name="myForm2" class="boxComentario form-group" (ngSubmit)="addComentario()">
       <div class="row">
         <div class="col-lg-5">
           <div class="row">
             <div class="col-lg-6">
-              <input autofocus type="text" name='nombreUsuarioText' class="form-control" required minlength="1" [(ngModel)]="nombreUsuarioText" placeholder="Nombre"
-                #nombreUsuario='ngModel'>
+              <input autofocus type="text" name='nombreUsuarioText' class="form-control" required minlength="1" [(ngModel)]="nombreUsuarioText"
+                placeholder="Nombre" #nombreUsuario='ngModel'>
             </div>
             <div class="col-lg-6">
-              <input type="email" name='correoUsuarioText' class="form-control" required minlength="1" [(ngModel)]="correoUsuarioText" placeholder="Correo"
-                #correoUsuario='ngModel'>
+              <input type="email" name='correoUsuarioText' class="form-control" required minlength="1" [(ngModel)]="correoUsuarioText"
+                placeholder="Correo" #correoUsuario='ngModel'>
             </div>
           </div>
           <br/>
@@ -50,13 +50,30 @@
           </fieldset>
         </div>
         <div class="col-lg-5">
-          <textarea class="form-control" rows="5" id="comment"></textarea>
+          <textarea class="form-control" name='descripcionUsua' rows="5" id="comment" required [(ngModel)]='descripcionUsuarioText'
+            placeholder="Ingrese el comentario."></textarea>
         </div>
         <div class="col-lg-2">
           <br/>
           <br/>
-          <button type="button" class="btn btn-primary btn-xl butn">Agregar</button>
+          <button type="submit" class="btn btn-primary btn-xl butn" (click)='activarBoton()'>Agregar</button>
         </div>
+      </div>
+      <div *ngIf="nombreUsuario.invalid && nombreUsuario.errors.required && botonActivo" class="alert alert-danger">
+        <div *ngIf="nombreUsuario.errors.required">
+          El nombre es un campo obligatorio.
+        </div>
+      </div>
+      <div *ngIf="correoUsuario.invalid && correoUsuario.errors.required && botonActivo" class="alert alert-danger">
+        <div *ngIf="correoUsuario.errors.required">
+          El correo es un campo obligatorio.
+        </div>
+      </div>
+      <div *ngIf="(descripcionUsuarioText.length == 0) && botonActivo" class="alert alert-danger">
+        La descripción es un campo obligatorio.
+      </div>
+      <div *ngIf="!estrellasActivas && botonActivo" class="alert alert-danger">
+        Debe seleccionar una calificación para el hotel.
       </div>
     </form>
     <hr>

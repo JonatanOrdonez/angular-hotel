@@ -21,7 +21,9 @@
                   <p class="pinkbox">{{ hotel.calificacion }}/5</p>
                 </div>
                 <div class="col-lg-9">
-                </div>
+                    <p class="comentarios" *ngIf="hotel.comentarios.length == 1">{{ hotel.comentarios.length }} comentario</p>
+                    <p class="comentarios" *ngIf="hotel.comentarios.length == 0 || hotel.comentarios.length > 1">{{ hotel.comentarios.length }} comentarios</p>
+                  </div>
               </div>
             </div>
             <div class="col-lg-4">
