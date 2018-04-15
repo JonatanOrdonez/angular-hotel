@@ -16,4 +16,8 @@ export class InfohotelComponent implements OnInit {
   ngOnInit() {
   }
 
+  starHandler(num){
+    console.log(num);
+  }
+
 }
