@@ -15,7 +15,7 @@ export class ListhotelsComponent implements OnInit {
   hotelesFiltrados: Hotel[];
   sizeHotels: number;
   closeResult: string;
-  selectedHotel: Hotel = new Hotel();
+  selectedHotel: Hotel;
   comentarios: Comentario[];
   calificacion: number = 0;
 

@@ -51,7 +51,9 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <app-infohotel [hotel]='selectedHotel'></app-infohotel>
+  <div *ngIf="selectedHotel">
+    <app-infohotel [hotel]='selectedHotel'></app-infohotel>
+  </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Cerrar</button>
   </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Hotel } from '../../models/hotel';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-infohotel',
@@ -9,20 +10,20 @@ import { Hotel } from '../../models/hotel';
 export class InfohotelComponent implements OnInit {
 
   @Input() hotel: Hotel;
-  nombre: string;
-  correo: string;
+  nombreUsuarioText: string;
+  correoUsuarioText: string;
 
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 
-  starHandler(num){
+  starHandler(num) {
     console.log(num);
   }
 
-  addComentario(){
-    
+  addComentario() {
+    console.log("error");
   }
 }

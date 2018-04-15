@@ -21,17 +21,17 @@
   <br>
   <hr>
   <div class="container">
-    <form name="myForm" class="boxComentario" (ngSubmit)="addComentario()">
+    <form name="myForm2" class="boxComentario" (ngSubmit)="addComentario()">
       <div class="row">
         <div class="col-lg-5">
           <div class="row">
             <div class="col-lg-6">
-              <input autofocus type="text" name='nombreUsuario' class="form-control" required minlength="1" [(ngModel)]='nombre' placeholder="Nombre"
+              <input autofocus type="text" name='nombreUsuarioText' class="form-control" required minlength="1" [(ngModel)]="nombreUsuarioText" placeholder="Nombre"
                 #nombreUsuario='ngModel'>
             </div>
             <div class="col-lg-6">
-              <input autofocus type="email" name='correo' class="form-control" required minlength="1" [(ngModel)]='correo' placeholder="Correo"
-                #correo='ngModel'>
+              <input type="email" name='correoUsuarioText' class="form-control" required minlength="1" [(ngModel)]="correoUsuarioText" placeholder="Correo"
+                #correoUsuario='ngModel'>
             </div>
           </div>
           <br/>
@@ -74,7 +74,7 @@
               <p>{{ comentario.descripcion }}</p>
             </div>
             <div class="col-lg-2">
-              <p class="pinkbox">-{{ comentario.calificacion }}/5</p>
+              <p class="pinkbox">{{ comentario.calificacion }}/5</p>
             </div>
           </div>
         </div>
