@@ -8,14 +8,14 @@ import { Hotel } from '../../models/hotel';
 })
 export class InfohotelComponent implements OnInit {
 
-  @Input() 
-  selectedHotel: Hotel;
+  @Input() hotel: Hotel;
   nombre: string;
   correo: string;
 
   constructor() { }
 
   ngOnInit() {
+    
   }
 
   starHandler(num){
