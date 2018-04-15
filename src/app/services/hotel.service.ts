@@ -38,6 +38,7 @@ export class HotelService {
   }
 
   getHotels(): Observable<Hotel[]> {
+    this.loadFireBaseHotels();
     return this.hotels;
   }
 
