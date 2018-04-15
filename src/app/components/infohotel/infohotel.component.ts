@@ -10,6 +10,8 @@ export class InfohotelComponent implements OnInit {
 
   @Input() 
   selectedHotel: Hotel;
+  nombre: string;
+  correo: string;
 
   constructor() { }
 
@@ -20,4 +22,7 @@ export class InfohotelComponent implements OnInit {
     console.log(num);
   }
 
+  addComentario(){
+    
+  }
 }

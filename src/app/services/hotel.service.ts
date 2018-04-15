@@ -87,7 +87,7 @@ export class HotelService {
       calificacion: 0,
       latitud: latitud,
       longitud: longitud,
-      numerocomentarios: 0
+      comentarios: []
     };
     this.addHotel(hotel);
   }

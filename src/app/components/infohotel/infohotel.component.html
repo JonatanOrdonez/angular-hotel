@@ -21,7 +21,7 @@
   <br>
   <hr>
   <div class="container">
-    <form name="myForm" class="boxComentario" (ngSubmit)="addHotel()">
+    <form name="myForm" class="boxComentario" (ngSubmit)="addComentario()">
       <div class="row">
         <div class="col-lg-5">
           <div class="row">
@@ -30,7 +30,7 @@
                 #nombreUsuario='ngModel'>
             </div>
             <div class="col-lg-6">
-              <input autofocus type="email" name='correo' class="form-control" required minlength="1" [(ngModel)]="nombre" placeholder="Correo"
+              <input autofocus type="email" name='correo' class="form-control" required minlength="1" [(ngModel)]="correo" placeholder="Correo"
                 #correo='ngModel'>
             </div>
           </div>

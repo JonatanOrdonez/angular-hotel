@@ -1,3 +1,5 @@
+import { Comentario } from "./comentario";
+
 export class Hotel {
     id: string;
     nombre: string;
@@ -5,5 +7,5 @@ export class Hotel {
     calificacion: number;
     latitud: number;
     longitud: number;
-    numerocomentarios: number;
+    comentarios: Comentario[];
 }
