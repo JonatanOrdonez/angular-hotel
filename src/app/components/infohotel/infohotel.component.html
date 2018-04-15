@@ -2,17 +2,17 @@
   <div class="row">
     <div class="col-lg-4">
       <p class="font">Precio por habitación</p>
-      <p class="fontPrice">{{ selectedHotel.precio | currency: $}}</p>
+      <p class="fontPrice">{{ hotel.precio | currency: $}}</p>
       <p class="font">Calificación</p>
-      <p class="pinkbox2">{{ selectedHotel.calificacion }}</p>
+      <p class="pinkbox2">{{ hotel.calificacion }}</p>
     </div>
     <div class="col-lg-1">
       <div class="vl"></div>
     </div>
     <div class="col-lg-7">
       <div class="embed-responsive embed-responsive-8by1 salto">
-        <agm-map [latitude]=selectedHotel.latitud [longitude]=selectedHotel.longitud [zoom]="4">
-          <agm-marker [latitude]=selectedHotel.latitud [longitude]=selectedHotel.longitud>
+        <agm-map [latitude]=hotel.latitud [longitude]=hotel.longitud [zoom]="4">
+          <agm-marker [latitude]=hotel.latitud [longitude]=hotel.longitud>
           </agm-marker>
         </agm-map>
       </div>
@@ -61,9 +61,9 @@
     </form>
     <hr>
     <div class="container">
-      <p>{{ selectedHotel.comentarios.length }} opiniones</p>
-      <div *ngIf="selectedHotel.comentarios?.length">
-        <div class="box" *ngFor="let comentario of selectedHotel.comentarios">
+      <p>{{ hotel.comentarios.length }} opiniones</p>
+      <div *ngIf="hotel.comentarios?.length">
+        <div class="box" *ngFor="let comentario of hotel.comentarios">
           <div class="row">
             <div class="col-lg-10">
               <strong>
