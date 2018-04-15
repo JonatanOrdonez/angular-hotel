@@ -40,9 +40,14 @@ export class InfohotelComponent implements OnInit {
         descripcion: this.descripcionUsuarioText,
         calificacion: this.numEstrellas
       }
-      this.hotel.comentarios.push(comentario);
-      let calf = (this.hotel.calificacion + this.numEstrellas)/2;
-      this.hotel.calificacion = calf;
+      if(this.hotel.comentarios.length == 0){
+        this.hotel.calificacion = this.numEstrellas;
+      }
+      else{
+        this.hotel.comentarios.push(comentario);
+        let calf = (this.hotel.calificacion + this.numEstrellas)/2;
+        this.hotel.calificacion = calf;
+      }
       this.hotelService.updateHotel(this.hotel);
       
       this.nombreUsuarioText= '';
